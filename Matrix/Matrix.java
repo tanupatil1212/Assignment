@@ -4,51 +4,37 @@ import java.io.*;
 
 class Matrix {
 
-	static int N = 4;
+	public static void main(String[] args) {
+		int count=0;
+		int[][] matrix1 = {
+				{1,2,3},
+				{4,5,6},
+				{7,8,9}
+		};
+		int[][] matrix2 = {
+				{9,8,7},
+				{6,5,4},
+				{3,2,1}
+		};
+		
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                int sum = 0;
+                for (int k = 0; k < 3; k++) {
+                    sum += matrix1[i][k] * matrix2[k][j];
 
-	// This function multiplies mat1[][]
-	// and mat2[][], and stores the result
-	// in res[][]
-	static void multiply(int mat1[][],
-						int mat2[][], int res[][])
-	{
-		int i, j, k;
-		for (i = 0; i < N; i++) {
-			for (j = 0; j < N; j++) {
-				res[i][j] = 0;
-				for (k = 0; k < N; k++)
-					res[i][j] += mat1[i][k]
-								* mat2[k][j];
+                }
+                if(count==3) {
+                	System.out.println("\n");
+                	count=0;
+            }
+                count++;
+                System.out.print(" "+sum);
+
 			}
 		}
-	}
-
-	// Driver code
-	public static void main(String[] args)
-	{
-		int mat1[][] = { { 1, 1, 1, 1 },
-						{ 2, 2, 2, 2 },
-						{ 3, 3, 3, 3 },
-						{ 4, 4, 4, 4 } };
-
-		int mat2[][] = { { 1, 1, 1, 1 },
-						{ 2, 2, 2, 2 },
-						{ 3, 3, 3, 3 },
-						{ 4, 4, 4, 4 } };
-
-		// To store result
-		int res[][] = new int[N][N];
-		int i, j;
-		multiply(mat1, mat2, res);
-
-		System.out.println("Result matrix"
-						+ " is ");
-		for (i = 0; i < N; i++) {
-			for (j = 0; j < N; j++)
-				System.out.print(res[i][j]
-								+ " ");
-			System.out.println();
-		}
+		
+		
 	}
 }
 
